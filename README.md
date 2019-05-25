@@ -1,6 +1,6 @@
 # Data Structures / 数据结构
-## 数据结构C语言版 / Data Structures in C <br>
-<br>
+## 数据结构C语言版 / Data Structures in C
+
 		语言 / Language: C 
 
 		编译环境 / Compiling environment:
@@ -12,7 +12,7 @@
 
 		参照c++顺序容器类成员函数命名方式命名
 
-		>Data Structures
-		>>Sequential Container
-		>>Adaptor
+		> Data Structures
+		>> Sequential Container
+		>> Adaptor
 		
