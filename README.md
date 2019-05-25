@@ -1,13 +1,14 @@
-# Data Structures
+#Data Structures / æ•°æ®ç»“æ„
+##æ•°æ®ç»“æ„Cè¯­è¨€ç‰ˆ / Data Structures in C <br>
+<br>
+*è¯­è¨€ / Language: C <br> 
 
-Êı¾İ½á¹¹ cÓïÑÔ°æ / Data Structures in C
+ç¼–è¯‘ç¯å¢ƒ / Compiling environment: <br>
+	windows, vs2017 <br>
 
-±àÒë»·¾³ / Compiling environment: 
-	windows, vs2017
-
-²Î¿¼Êé¼® / Reference Books: 
-	Data Structures and Algorithm Analysis in C, Second Edition by Mark Allen Weiss
-	C Primer Plus, Sixth Edition by Stephen Prata
-
-Forward_List, Stack
-²ÎÕÕc++Ë³ĞòÈİÆ÷Àà³ÉÔ±º¯ÊıÃüÃû·½Ê½ÃüÃû
+å‚è€ƒä¹¦ç± / Reference Books: <br>
+	Data Structures and Algorithm Analysis in C, Second Edition by Mark Allen Weiss <br>
+	C Primer Plus, Sixth Edition by Stephen Prata <br>
+<br>
+		Forward_List, Stack <br>
+		å‚ç…§c++é¡ºåºå®¹å™¨ç±»æˆå‘˜å‡½æ•°å‘½åæ–¹å¼å‘½å
