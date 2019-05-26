@@ -4,7 +4,7 @@
         语言 / Language: C
 
         编译环境 / Compiling environment:
-            windows, vs2017
+            windows, visual studio 2017
 
         参考书籍 / Reference Books:
             Data Structures and Algorithm Analysis in C, Second Edition by Mark Allen Weiss
@@ -17,3 +17,4 @@
 		* Forward_List
 	* Adaptor
 		* Stack
+        * Queue
