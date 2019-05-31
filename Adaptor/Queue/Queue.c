@@ -9,25 +9,25 @@ struct node {
 
 struct queue {
   PtrToNode Front;
-  PtrToNode Rear;
-  unsigned Items;
+  PtrToNode Back;
+  unsigned Size;
 };
 
 Queue Make_Queue(void) {
   Queue Q = (Queue)malloc(sizeof(struct queue));
-  Q->Front = Q->Rear = NULL;
-  Q->Items = 0;
+  Q->Front = Q->Back = NULL;
+  Q->Size = 0;
   return Q;
 }
 
 void Queue_Initialize(Queue Q) {
-  Q->Front = Q->Rear = NULL;
-  Q->Items = 0;
+  Q->Front = Q->Back = NULL;
+  Q->Size = 0;
 }
 
-bool Queue_Empty(const Queue Q) { return !Q->Items; }
+bool Queue_Empty(const Queue Q) { return !Q->Size; }
 
-unsigned Queue_Size(const Queue Q) { return Q->Items; }
+unsigned Queue_Size(const Queue Q) { return Q->Size; }
 
 bool Queue_EnQueue(const ElementType X, Queue Q) {
   PtrToNode P = (PtrToNode)malloc(sizeof(Node));
@@ -37,9 +37,9 @@ bool Queue_EnQueue(const ElementType X, Queue Q) {
   if (Queue_Empty(Q))
     Q->Front = P;
   else
-    Q->Rear->Next = P;
-  Q->Rear = P;
-  Q->Items++;
+    Q->Back->Next = P;
+  Q->Back = P;
+  ++Q->Size;
   return true;
 }
 
@@ -51,9 +51,9 @@ bool Queue_Push(const ElementType X, Queue Q) {
   if (Queue_Empty(Q))
     Q->Front = P;
   else
-    Q->Rear->Next = P;
-  Q->Rear = P;
-  Q->Items++;
+    Q->Back->Next = P;
+  Q->Back = P;
+  ++Q->Size;
   return true;
 }
 
@@ -63,29 +63,31 @@ bool Queue_DeQueue(ElementType *i, Queue Q) {
   *i = Q->Front->Element;
   Q->Front = Q->Front->Next;
   free(P);
-  Q->Items--;
-  if (Queue_Empty(Q)) Q->Rear = NULL;
+  --Q->Size;
+  if (Queue_Empty(Q)) Q->Back = NULL;
   return true;
 }
 
 bool Queue_Pop(Queue Q) {
-  PtrToNode P = Q->Front, P_ = Q->Rear;
+  PtrToNode P = Q->Front, P_ = Q->Back;
   if (!P) return false;
   if (!P->Next)
     P = NULL;
   else {
-    while (P->Next != Q->Rear) P = P->Next;
+    while (P->Next != Q->Back) P = P->Next;
     P->Next = NULL;
   }
   free(P_);
-  Q->Rear = P;
-  Q->Items--;
+  Q->Back = P;
+  --Q->Size;
   return true;
 }
 
-ElementType Queue_Front(const Queue Q) { return Q->Front->Element; }
+PtrToNode Queue_Front(const Queue Q) { return Q->Front; }
 
-ElementType Queue_Back(const Queue Q) { return Q->Rear->Element; }
+PtrToNode Queue_Back(const Queue Q) { return Q->Back; }
+
+ElementType Queue_Retrieve(const PtrToNode P) { return P->Element; }
 
 void Queue_Clear(Queue Q) {
   PtrToNode P = Q->Front, P_;
@@ -93,7 +95,7 @@ void Queue_Clear(Queue Q) {
     P_ = P;
     P = P->Next;
     free(P_);
-    Q->Items--;
+    --Q->Size;
   }
-  Q->Front = Q->Rear = NULL;
+  Q->Front = Q->Back = NULL;
 }
