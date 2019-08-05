@@ -1,7 +1,7 @@
-#include <stdlib.h>
-#include <stdbool.h>
-#include <string.h>
 #include "Tree.h"
+#include <stdbool.h>
+#include <stdlib.h>
+#include <string.h>
 
 static PtrToNode Find(const ElementType, const PtrToNode);
 static PtrToNode Insert(const ElementType, PtrToNode, Tree);
@@ -81,11 +81,11 @@ static PtrToNode Insert(const ElementType X, PtrToNode P, Tree T) {
     strcpy_s(P->Element.Item, sizeof(char) * 10, X.Item);
     ++T->Size;
   } else {
-  int temp = strcmp(P->Element.Item, X.Item);
-  if (temp < 0)
-    P->Left = Insert(X, P->Left, T);
-  else if (temp > 0)
-    P->Right = Insert(X, P->Right, T);
+    int temp = strcmp(P->Element.Item, X.Item);
+    if (temp < 0)
+      P->Left = Insert(X, P->Left, T);
+    else if (temp > 0)
+      P->Right = Insert(X, P->Right, T);
   }
   return P;
 }
@@ -104,7 +104,8 @@ static PtrToNode Delete(const ElementType X, PtrToNode P, Tree T) {
     P->Right = Delete(P->Element, P->Right, T);
   } else {
     PtrToNode P_ = P;
-    if (P->Left) P = P->Left;
+    if (P->Left)
+      P = P->Left;
     else if (P->Right)
       P = P->Right;
     free(P_);
