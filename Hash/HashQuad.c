@@ -61,6 +61,17 @@ ElementType HashQuadRetrieve(Position P, HashTable H) {
   return H->Cells[P].Element;
 }
 
+HashTable HashQuadRehash(HashTable H) {
+  Cell* OldCells = H->Cells;
+  int OldSize = H->TableSize;
+  H = HashQuadInitialize(2 * OldSize);
+  for (int i = 0; i < OldSize; ++i) {
+    if (OldCells[i].Info == Legitimate) HashQuadInsert(OldCells[i].Element, H);
+  }
+  free(OldCells);
+  return H;
+}
+
 bool isPrime(int num) {
   if (num == 2 || num == 3) {
     return true;

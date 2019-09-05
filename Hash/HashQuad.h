@@ -21,5 +21,6 @@ Position HashQuadFind(ElementType, HashTable);
 void HashQuadInsert(ElementType, HashTable);
 void HashQuadErase(ElementType, HashTable);
 ElementType HashQuadRetrieve(Position, HashTable);
+HashTable HashQuadRehash(HashTable);
 
 #endif  // !_HASHQUAD_H_
